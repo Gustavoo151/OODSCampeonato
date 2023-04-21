@@ -15,4 +15,10 @@ public class Campeonato {
     public ArrayList<Time> getTimes(){
         return this.times;
     }
+    
+    public void mostarTimes(){
+        for (Time time:times){
+            System.out.println(time.getNome());
+        }
+    }
 }

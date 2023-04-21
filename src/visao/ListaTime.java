@@ -57,14 +57,7 @@ public class ListaTime extends javax.swing.JFrame {
         this.campeonato = campeonato;
     }
     
-    public void mostrarTimes(){
-        ArrayList<Time> times = campeonato.getTimes();
-        
-        //for (int i = 0;i < times.size(); i++){
-            System.out.println(times);
-       // }
-    }
-        
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVoltaTelaCastro;
     private javax.swing.JLabel jLabel1;

@@ -11,6 +11,9 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
     
     public TelaCadastroTimes() {
         initComponents();
+        jButtonAdicionarTecnico.setEnabled(false);
+        jButtonAdicionarTime.setEnabled(false);
+        jButtonAdicionarJogador.setEnabled(false);
     }
    
     private gerenciadorCadastro cadastro = new gerenciadorCadastro();
@@ -41,7 +44,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jlbJogador = new javax.swing.JLabel();
         jTextNomeJogador = new javax.swing.JTextField();
         jlbNomeJogador = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonAdicionarJogador = new javax.swing.JButton();
         jlbIdadeJoegador = new javax.swing.JLabel();
         jTextIdadeJogador = new javax.swing.JTextField();
         jlbPosicaoJogador = new javax.swing.JLabel();
@@ -123,13 +126,13 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jlbNomeJogador.setText("Nome:");
         getContentPane().add(jlbNomeJogador, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 311, -1, -1));
 
-        jButton1.setText("Add Jogador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdicionarJogador.setText("Add Jogador");
+        jButtonAdicionarJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAdicionarJogadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 370, -1, -1));
+        getContentPane().add(jButtonAdicionarJogador, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 370, -1, -1));
 
         jlbIdadeJoegador.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jlbIdadeJoegador.setText("Idade:");
@@ -232,7 +235,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextAlturaJogadorActionPerformed
 
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAdicionarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarJogadorActionPerformed
         if(!jTextNomeJogador.getText().isEmpty() && 
                 !jTextIdadeJogador.getText().isEmpty() &&
                 !jTextPosicaoJogador.getText().isEmpty() &&
@@ -253,10 +256,12 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
             
             Time time = cadastro.getTime();
             time.setAtleta(atleta);
+            
+            jButtonAdicionarTime.setEnabled(true);
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");            
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAdicionarJogadorActionPerformed
 
     private void jButtonListarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarCadastrosActionPerformed
          this.dispose();
@@ -265,7 +270,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
          
          listarTimes.setCampeonato(campeonato);
          
-         listarTimes.mostrarTimes();
+         campeonato.mostarTimes();
          
          listarTimes.setVisible(true);
     }//GEN-LAST:event_jButtonListarCadastrosActionPerformed
@@ -275,6 +280,9 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         Campeonato campeonato = cadastro.getCampeonato();
         campeonato.setTimes(time);
         limparCamposTecnicoETime();
+        
+        jButtonAdicionarJogador.setEnabled(false);
+        jButtonCriarTime.setEnabled(true);
     }//GEN-LAST:event_jButtonAdicionarTimeActionPerformed
 
     private void jButtonAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTecnicoActionPerformed
@@ -289,14 +297,16 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
                     jTextIdadeTecnico.getText(),
                     jTextAlturaTecnico.getText(),
                     jTextEstiloTecnico.getText()
-            );
-                          
+            );              
             cadastro.setTecnico(tecnico);
-            
+           
             Time time = cadastro.getTime();
             time.setTecnico(tecnico);
             
             JOptionPane.showMessageDialog(this, "Técnico adicionado.");
+            
+            jButtonAdicionarTecnico.setEnabled(false);
+            jButtonAdicionarJogador.setEnabled(true);
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
@@ -312,6 +322,9 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         
         cadastro.setTime(time);
         JOptionPane.showMessageDialog(this, "Time Criado.");
+        
+        jButtonCriarTime.setEnabled(false);
+        jButtonAdicionarTecnico.setEnabled(true);
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha o campo!");
@@ -335,7 +348,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAdicionarJogador;
     private javax.swing.JButton jButtonAdicionarTecnico;
     private javax.swing.JButton jButtonAdicionarTime;
     private javax.swing.JButton jButtonCriarTime;
