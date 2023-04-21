@@ -1,13 +1,9 @@
 package visao;
 
 import javax.swing.JOptionPane;
-import Controle.gerenciadorCadastro;
-import src.Atleta;
-import src.Tecnico;
-import src.Time;
-import src.Campeonato;
 
-public class TelaCadastroTimes extends javax.swing.JFrame {
+
+abstract public class TelaCadastroTimes extends javax.swing.JFrame {
     
     public TelaCadastroTimes() {
         initComponents();
@@ -16,14 +12,11 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jButtonAdicionarJogador.setEnabled(false);
     }
    
-    private gerenciadorCadastro cadastro = new gerenciadorCadastro();
-    private Campeonato campeonato;
-    
-    public void setCampeonato(Campeonato campeonato){
-        this.campeonato = campeonato;
-    }
-    
-    
+    abstract public void salvarTecnico();
+    abstract public void salvarAtleta();
+    abstract public void criarTime();
+    abstract public void salvarTime();
+    abstract public void telaSobre();
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -236,150 +229,41 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
 
     
     private void jButtonAdicionarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarJogadorActionPerformed
-        if(!jTextNomeJogador.getText().isEmpty() && 
-                !jTextIdadeJogador.getText().isEmpty() &&
-                !jTextPosicaoJogador.getText().isEmpty() &&
-                !jTextAlturaJogador.getText().isEmpty() &&
-                !jTextMelhorPe.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Atleta cadastrado.");
-            
-            
-            Atleta atleta = new Atleta(
-                    jTextPosicaoJogador.getText(),
-                    jTextMelhorPe.getText(),
-                    jTextNomeJogador.getText(),
-                    jTextIdadeJogador.getText(),
-                    jTextAlturaJogador.getText()
-            );
-            limparCamposAtleta();
-            
-            Time time = cadastro.getTime();
-            time.setAtleta(atleta);
-            
-            jButtonAdicionarTime.setEnabled(true);
-        }
-        else
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos!");            
+        salvarAtleta();
     }//GEN-LAST:event_jButtonAdicionarJogadorActionPerformed
 
     private void jButtonListarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarCadastrosActionPerformed
-         this.dispose();
-         ListaTime listarTimes = new ListaTime();
-         listarTimes.setTelaCastro(this);
-         
-         listarTimes.setCampeonato(campeonato);
-         
-         campeonato.mostarTimes();
-         
-         listarTimes.setVisible(true);
+        telaSobre();
     }//GEN-LAST:event_jButtonListarCadastrosActionPerformed
 
     private void jButtonAdicionarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTimeActionPerformed
-        Time time = cadastro.getTime();
-        Campeonato campeonato = cadastro.getCampeonato();
-        campeonato.setTimes(time);
-        limparCamposTecnicoETime();
-        
-        jButtonAdicionarJogador.setEnabled(false);
-        jButtonCriarTime.setEnabled(true);
-        jButtonAdicionarTime.setEnabled(false);
-        
-        acessiblidadeDosCampos(true);
-        jTextNomeTime.setEditable(true);
+        salvarTime();
     }//GEN-LAST:event_jButtonAdicionarTimeActionPerformed
 
-    public void acessiblidadeDosCampos(boolean estado){
-        jTextNomeTecnico.setEditable(estado);
-        jTextIdadeTecnico.setEditable(estado);
-        jTextEstiloTecnico.setEditable(estado);
-        jTextAlturaTecnico.setEditable(estado);
-        
-    }
-    
-    
     private void jButtonAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTecnicoActionPerformed
-        if(!jTextNomeTime.getText().isEmpty() &&
-                !jTextNomeTecnico.getText().isEmpty() &&
-                !jTextNomeTecnico.getText().isEmpty() &&
-                !jTextAlturaTecnico.getText().isEmpty() &&
-                !jTextEstiloTecnico.getText().isEmpty())
-        {
-            Tecnico tecnico = new Tecnico(
-                    jTextNomeTecnico.getText(),
-                    jTextIdadeTecnico.getText(),
-                    jTextAlturaTecnico.getText(),
-                    jTextEstiloTecnico.getText()
-            );              
-            cadastro.setTecnico(tecnico);
-           
-            Time time = cadastro.getTime();
-            time.setTecnico(tecnico);
-            
-            JOptionPane.showMessageDialog(this, "Técnico adicionado.");
-            
-            jButtonAdicionarTecnico.setEnabled(false);
-            jButtonAdicionarJogador.setEnabled(true);
-            
-            acessiblidadeDosCampos(false);  
-        }
-        else
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
+        salvarTecnico();
     }//GEN-LAST:event_jButtonAdicionarTecnicoActionPerformed
 
-    
     private void jButtonCriarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarTimeActionPerformed
-        
-        if (!jTextNomeTime.getText().isEmpty()){
-        cadastro.setCampeonato(this.campeonato);
-        Time time = new Time();
-        time.setNome(jTextNomeTime.getText());
-        
-        cadastro.setTime(time);
-        JOptionPane.showMessageDialog(this, "Time Criado.");
-        
-        jButtonCriarTime.setEnabled(false);
-        jButtonAdicionarTecnico.setEnabled(true);
-        
-        jTextNomeTime.setEditable(false);
-        }
-        else
-            JOptionPane.showMessageDialog(this, "Preencha o campo!");
+        criarTime();
     }//GEN-LAST:event_jButtonCriarTimeActionPerformed
 
-    public void limparCamposAtleta(){
-        jTextNomeJogador.setText("");
-        jTextIdadeJogador.setText("");
-        jTextAlturaJogador.setText("");
-        jTextMelhorPe.setText("");
-        jTextPosicaoJogador.setText("");
-    } 
-    
-    public void limparCamposTecnicoETime(){
-        limparCamposAtleta();
-        jTextNomeTecnico.setText("");
-        jTextNomeTime.setText("");
-        jTextEstiloTecnico.setText("");
-        jTextAlturaTecnico.setText("");
-        jTextIdadeTecnico.setText("");
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdicionarJogador;
-    private javax.swing.JButton jButtonAdicionarTecnico;
-    private javax.swing.JButton jButtonAdicionarTime;
-    private javax.swing.JButton jButtonCriarTime;
-    private javax.swing.JButton jButtonListarCadastros;
-    private javax.swing.JTextField jTextAlturaJogador;
-    private javax.swing.JTextField jTextAlturaTecnico;
-    private javax.swing.JTextField jTextEstiloTecnico;
-    private javax.swing.JTextField jTextIdadeJogador;
-    private javax.swing.JTextField jTextIdadeTecnico;
-    private javax.swing.JTextField jTextMelhorPe;
-    private javax.swing.JTextField jTextNomeJogador;
-    private javax.swing.JTextField jTextNomeTecnico;
-    private javax.swing.JTextField jTextNomeTime;
-    private javax.swing.JTextField jTextPosicaoJogador;
+    public javax.swing.JButton jButtonAdicionarJogador;
+    public javax.swing.JButton jButtonAdicionarTecnico;
+    public javax.swing.JButton jButtonAdicionarTime;
+    public javax.swing.JButton jButtonCriarTime;
+    public javax.swing.JButton jButtonListarCadastros;
+    public javax.swing.JTextField jTextAlturaJogador;
+    public javax.swing.JTextField jTextAlturaTecnico;
+    public javax.swing.JTextField jTextEstiloTecnico;
+    public javax.swing.JTextField jTextIdadeJogador;
+    public javax.swing.JTextField jTextIdadeTecnico;
+    public javax.swing.JTextField jTextMelhorPe;
+    public javax.swing.JTextField jTextNomeJogador;
+    public javax.swing.JTextField jTextNomeTecnico;
+    public javax.swing.JTextField jTextNomeTime;
+    public javax.swing.JTextField jTextPosicaoJogador;
     private javax.swing.JLabel jlbAltura;
     private javax.swing.JLabel jlbAlturaTecnico;
     private javax.swing.JLabel jlbEstilo;

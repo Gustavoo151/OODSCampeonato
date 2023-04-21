@@ -1,12 +1,9 @@
 package visao;
-import src.Campeonato;
-import java.util.ArrayList;
-import src.Time;
 
-public class ListaTime extends javax.swing.JFrame {
+abstract public class ListaTime extends javax.swing.JFrame {
 
-    private TelaCadastroTimes telaCadastro;
-    private Campeonato campeonato;
+    abstract public void times(); 
+    abstract public void telaCadastro();
     
     public ListaTime() {
         initComponents();
@@ -42,22 +39,11 @@ public class ListaTime extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    public void setTelaCastro(TelaCadastroTimes telaCadastro){
-        this.telaCadastro = telaCadastro;
-    }
-    
+  
     private void jButtonVoltaTelaCastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltaTelaCastroActionPerformed
-        telaCadastro.setVisible(true);
-        this.dispose();
-                
+        telaCadastro();            
     }//GEN-LAST:event_jButtonVoltaTelaCastroActionPerformed
-
-    public void setCampeonato(Campeonato campeonato){
-        this.campeonato = campeonato;
-    }
-    
-     
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVoltaTelaCastro;
     private javax.swing.JLabel jLabel1;

@@ -31,6 +31,9 @@ public class Time {
             this.atletas.add(atleta);
         }
 
+        public ArrayList<Atleta> getAtletas(){
+            return this.atletas;
+        }
         
         public void mostraTime(){
             System.out.println(this.tecnico.getNome() + this.tecnico.getAltura());

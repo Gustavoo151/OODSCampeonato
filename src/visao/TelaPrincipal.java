@@ -1,20 +1,15 @@
 package visao;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import src.Atleta;
-import src.Campeonato;
-import src.Tecnico;
-import src.Time;
+import src.Cadastro;
 
 public class TelaPrincipal extends javax.swing.JFrame {
    
-    public TelaPrincipal() {
-        initComponents();
-        
-    }
+    Cadastro cadastro = new Cadastro();
     
-    private TelaCadastroTimes telaCadastroTime = new TelaCadastroTimes(); 
+    public TelaPrincipal() {
+        initComponents(); 
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -68,12 +63,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTimeButtonActionPerformed
-
-        Campeonato campeonato = new Campeonato();
         this.dispose();
-        
-        this.telaCadastroTime.setCampeonato(campeonato);
-        telaCadastroTime.setVisible(true);
+        cadastro.setVisible(true);
     }//GEN-LAST:event_addTimeButtonActionPerformed
 
     private void sobreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreButtonActionPerformed
