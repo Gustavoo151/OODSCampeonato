@@ -274,6 +274,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         Time time = cadastro.getTime();
         Campeonato campeonato = cadastro.getCampeonato();
         campeonato.setTimes(time);
+        limparCamposTecnicoETime();
     }//GEN-LAST:event_jButtonAdicionarTimeActionPerformed
 
     private void jButtonAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTecnicoActionPerformed
@@ -329,7 +330,8 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jTextNomeTecnico.setText("");
         jTextNomeTime.setText("");
         jTextEstiloTecnico.setText("");
-        
+        jTextAlturaTecnico.setText("");
+        jTextIdadeTecnico.setText("");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
