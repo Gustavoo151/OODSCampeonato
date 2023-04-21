@@ -1,22 +1,19 @@
 package visao;
 
-import javax.swing.JOptionPane;
-
-
 abstract public class TelaCadastroTimes extends javax.swing.JFrame {
     
     public TelaCadastroTimes() {
         initComponents();
-        jButtonAdicionarTecnico.setEnabled(false);
-        jButtonAdicionarTime.setEnabled(false);
-        jButtonAdicionarJogador.setEnabled(false);
+        confgBottons();
+
     }
    
     abstract public void salvarTecnico();
     abstract public void salvarAtleta();
     abstract public void criarTime();
     abstract public void salvarTime();
-    abstract public void telaSobre();
+    abstract public void telaListaTime();
+    abstract public void confgBottons();
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -233,7 +230,7 @@ abstract public class TelaCadastroTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarJogadorActionPerformed
 
     private void jButtonListarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarCadastrosActionPerformed
-        telaSobre();
+        telaListaTime();
     }//GEN-LAST:event_jButtonListarCadastrosActionPerformed
 
     private void jButtonAdicionarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTimeActionPerformed

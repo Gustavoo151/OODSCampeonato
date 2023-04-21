@@ -124,11 +124,18 @@ public class Cadastro extends TelaCadastroTimes{
     } 
 
     @Override
-    public void telaSobre() {
+    public void telaListaTime() {
         this.dispose();
         ListarTimes listarTimes = new ListarTimes();
+        listarTimes.setVisible(true);
         listarTimes.setTela(this);
         listarTimes.setTimes(this.campeonato.getTimes());
-        listarTimes.mostrarTimes();
+    }
+
+    @Override
+    public void confgBottons() {
+        jButtonAdicionarTecnico.setEnabled(false);
+        jButtonAdicionarTime.setEnabled(false);
+        jButtonAdicionarJogador.setEnabled(false);
     }
 }

@@ -1,16 +1,11 @@
 package visao;
 
-import javax.swing.JOptionPane;
-import src.Cadastro;
-
-public class TelaPrincipal extends javax.swing.JFrame {
-   
-    Cadastro cadastro = new Cadastro();
+abstract public class TelaInicio extends javax.swing.JFrame {
     
-    public TelaPrincipal() {
-        initComponents(); 
+    public TelaInicio(){
+        initComponents();
     }
-    
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -61,26 +56,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    abstract public void sobre();
+    abstract public void telaCadastro();
+    
     private void addTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTimeButtonActionPerformed
-        this.dispose();
-        cadastro.setVisible(true);
+        telaCadastro();
     }//GEN-LAST:event_addTimeButtonActionPerformed
 
     private void sobreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreButtonActionPerformed
-
-     //   JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
-        JOptionPane.showMessageDialog(this, "\tProjeto desenvolvido para disciplina de Orientação a \n"
-                + "Objetos no Desenvolvimento de Software.\n\n"
-                + " \tEsse projeto foi desenvolvido para simular um sistema\n"
-                + " de cadastro de times em um campeonato de futebol, usando \n"
-                + "conceitos de orientação a objetos com java.", "Sobre", ICONIFIED);
+        sobre();
     }//GEN-LAST:event_sobreButtonActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addTimeButton;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton sobreButton;
+    public javax.swing.JButton sobreButton;
     // End of variables declaration//GEN-END:variables
 }

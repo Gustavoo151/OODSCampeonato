@@ -11,4 +11,6 @@ public interface InterfaceListarTimes {
     public void setTimes(ArrayList<Time> time);
     
     public void mostrarTimes();
+    
+    public void telaCadastro();
 }

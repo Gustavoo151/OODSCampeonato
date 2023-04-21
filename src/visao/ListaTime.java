@@ -40,8 +40,19 @@ abstract public class ListaTime extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
   
+ /*   public void teste(){
+        jListTimes = new javax.swing.JList<>();
+        jListTimes.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListTimes);
+    }*/
+    
+    
     private void jButtonVoltaTelaCastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltaTelaCastroActionPerformed
-        telaCadastro();            
+        telaCadastro();          
     }//GEN-LAST:event_jButtonVoltaTelaCastroActionPerformed
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
