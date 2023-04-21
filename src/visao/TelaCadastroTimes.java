@@ -1,7 +1,7 @@
 package visao;
 
 import javax.swing.JOptionPane;
-import src.gerenciadorCadastro;
+import Controle.gerenciadorCadastro;
 import src.Atleta;
 import src.Tecnico;
 import src.Time;
@@ -283,8 +283,21 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         
         jButtonAdicionarJogador.setEnabled(false);
         jButtonCriarTime.setEnabled(true);
+        jButtonAdicionarTime.setEnabled(false);
+        
+        acessiblidadeDosCampos(true);
+        jTextNomeTime.setEditable(true);
     }//GEN-LAST:event_jButtonAdicionarTimeActionPerformed
 
+    public void acessiblidadeDosCampos(boolean estado){
+        jTextNomeTecnico.setEditable(estado);
+        jTextIdadeTecnico.setEditable(estado);
+        jTextEstiloTecnico.setEditable(estado);
+        jTextAlturaTecnico.setEditable(estado);
+        
+    }
+    
+    
     private void jButtonAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTecnicoActionPerformed
         if(!jTextNomeTime.getText().isEmpty() &&
                 !jTextNomeTecnico.getText().isEmpty() &&
@@ -307,6 +320,8 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
             
             jButtonAdicionarTecnico.setEnabled(false);
             jButtonAdicionarJogador.setEnabled(true);
+            
+            acessiblidadeDosCampos(false);  
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
@@ -325,6 +340,8 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         
         jButtonCriarTime.setEnabled(false);
         jButtonAdicionarTecnico.setEnabled(true);
+        
+        jTextNomeTime.setEditable(false);
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha o campo!");

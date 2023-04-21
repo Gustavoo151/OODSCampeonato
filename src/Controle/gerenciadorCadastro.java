@@ -1,4 +1,8 @@
-package src;
+package Controle;
+
+import src.Campeonato;
+import src.Tecnico;
+import src.Time;
 
 public class gerenciadorCadastro {
     
