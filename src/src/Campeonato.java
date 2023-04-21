@@ -11,4 +11,8 @@ public class Campeonato {
     public void setTimes(Time times) {
         this.times.add(times);
     }
+    
+    public ArrayList<Time> getTimes(){
+        return this.times;
+    }
 }

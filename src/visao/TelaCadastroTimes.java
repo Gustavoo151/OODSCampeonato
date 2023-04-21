@@ -16,10 +16,11 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
     private gerenciadorCadastro cadastro = new gerenciadorCadastro();
     private Campeonato campeonato;
     
-    
     public void setCampeonato(Campeonato campeonato){
         this.campeonato = campeonato;
     }
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,7 +50,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jTextAlturaJogador = new javax.swing.JTextField();
         jlbMelhorPerna = new javax.swing.JLabel();
         jTextMelhorPe = new javax.swing.JTextField();
-        jButtonFinalizarCadastro = new javax.swing.JButton();
+        jButtonListarCadastros = new javax.swing.JButton();
         jButtonAdicionarTime = new javax.swing.JButton();
         jButtonAdicionarTecnico = new javax.swing.JButton();
         jButtonCriarTime = new javax.swing.JButton();
@@ -168,14 +169,14 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         getContentPane().add(jlbMelhorPerna, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 431, 90, -1));
         getContentPane().add(jTextMelhorPe, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 270, -1));
 
-        jButtonFinalizarCadastro.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jButtonFinalizarCadastro.setText("Finalizar Cadastros");
-        jButtonFinalizarCadastro.addActionListener(new java.awt.event.ActionListener() {
+        jButtonListarCadastros.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        jButtonListarCadastros.setText("Listar Cadastros");
+        jButtonListarCadastros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFinalizarCadastroActionPerformed(evt);
+                jButtonListarCadastrosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonFinalizarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 499, -1, -1));
+        getContentPane().add(jButtonListarCadastros, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 499, -1, -1));
 
         jButtonAdicionarTime.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jButtonAdicionarTime.setText("Adicionar Time");
@@ -200,7 +201,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
                 jButtonCriarTimeActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCriarTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
+        getContentPane().add(jButtonCriarTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 67, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -248,20 +249,31 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
                     jTextIdadeJogador.getText(),
                     jTextAlturaJogador.getText()
             );
-            limparCampos();
+            limparCamposAtleta();
+            
+            Time time = cadastro.getTime();
+            time.setAtleta(atleta);
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");            
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButtonFinalizarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarCadastroActionPerformed
+    private void jButtonListarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarCadastrosActionPerformed
          this.dispose();
-         TelaPrincipal principal = new TelaPrincipal();
-         principal.setVisible(true);
-    }//GEN-LAST:event_jButtonFinalizarCadastroActionPerformed
+         ListaTime listarTimes = new ListaTime();
+         listarTimes.setTelaCastro(this);
+         
+         listarTimes.setCampeonato(campeonato);
+         
+         listarTimes.mostrarTimes();
+         
+         listarTimes.setVisible(true);
+    }//GEN-LAST:event_jButtonListarCadastrosActionPerformed
 
     private void jButtonAdicionarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTimeActionPerformed
-           
+        Time time = cadastro.getTime();
+        Campeonato campeonato = cadastro.getCampeonato();
+        campeonato.setTimes(time);
     }//GEN-LAST:event_jButtonAdicionarTimeActionPerformed
 
     private void jButtonAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarTecnicoActionPerformed
@@ -279,15 +291,17 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
             );
                           
             cadastro.setTecnico(tecnico);
-                    
+            
+            Time time = cadastro.getTime();
+            time.setTecnico(tecnico);
+            
             JOptionPane.showMessageDialog(this, "Técnico adicionado.");
-            
-            
         }
         else
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
     }//GEN-LAST:event_jButtonAdicionarTecnicoActionPerformed
 
+    
     private void jButtonCriarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarTimeActionPerformed
         
         if (!jTextNomeTime.getText().isEmpty()){
@@ -302,7 +316,7 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha o campo!");
     }//GEN-LAST:event_jButtonCriarTimeActionPerformed
 
-    public void limparCampos(){
+    public void limparCamposAtleta(){
         jTextNomeJogador.setText("");
         jTextIdadeJogador.setText("");
         jTextAlturaJogador.setText("");
@@ -310,12 +324,20 @@ public class TelaCadastroTimes extends javax.swing.JFrame {
         jTextPosicaoJogador.setText("");
     } 
     
+    public void limparCamposTecnicoETime(){
+        limparCamposAtleta();
+        jTextNomeTecnico.setText("");
+        jTextNomeTime.setText("");
+        jTextEstiloTecnico.setText("");
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdicionarTecnico;
     private javax.swing.JButton jButtonAdicionarTime;
     private javax.swing.JButton jButtonCriarTime;
-    private javax.swing.JButton jButtonFinalizarCadastro;
+    private javax.swing.JButton jButtonListarCadastros;
     private javax.swing.JTextField jTextAlturaJogador;
     private javax.swing.JTextField jTextAlturaTecnico;
     private javax.swing.JTextField jTextEstiloTecnico;
