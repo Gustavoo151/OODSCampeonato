@@ -14,12 +14,6 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
     
     public ListarTimes(){
     }
-    
-    
-    @Override
-    public void times() {
-       
-    }
 
     @Override
     public void telaCadastro() {
@@ -59,9 +53,31 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
     }
 
     @Override
-    public void RemoverTime() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void removerTime() {
+         for(int i = 0; i < times.size(); i++){
+            if(jTextRemoverTime.getText().equals(times.get(i).getNome())){
+                times.remove(i);
+            }
+        }
     }
 
+    @Override
+    public void setTextoBarraPesquisarJog() {
+        jTextPesquisaTimesJogadores.setText("Nome do Time");
+    }
 
+    @Override
+    public void removerTextoBarraPesquisarJog() {
+        jTextPesquisaTimesJogadores.setText("");
+    }
+
+    @Override
+    public void setTextoBarraPequisarTime() {
+        jTextRemoverTime.setText("Nome do Time");
+    }
+
+    @Override
+    public void removerTextoBarraPesquisaTime() {
+        jTextRemoverTime.setText("");
+    }
 }
