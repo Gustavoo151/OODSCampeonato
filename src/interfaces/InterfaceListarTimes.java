@@ -13,4 +13,6 @@ public interface InterfaceListarTimes {
     public void mostrarTimes();
     
     public void telaCadastro();
+    
+    public void RemoverTime();
 }

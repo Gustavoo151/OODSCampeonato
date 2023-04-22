@@ -130,6 +130,8 @@ public class Cadastro extends TelaCadastroTimes{
         listarTimes.setVisible(true);
         listarTimes.setTela(this);
         listarTimes.setTimes(this.campeonato.getTimes());
+        listarTimes.configModelo();
+        listarTimes.mostrarTimes();
     }
 
     @Override
