@@ -3,12 +3,12 @@ package visao;
 abstract public class ListaTime extends javax.swing.JFrame {
 
     abstract public void telaCadastro();
-    abstract public void configModelo();
     abstract public void removerTime();   
     abstract public void setTextoBarraPesquisarJog();
     abstract public void removerTextoBarraPesquisarJog();
     abstract public void setTextoBarraPequisarTime();
     abstract public void removerTextoBarraPesquisaTime();
+    abstract public void atualizarTabela();
     
     public ListaTime() {
         initComponents();
@@ -46,7 +46,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabelTitulo.setText("Times cadastrados");
-        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
         jTableListaTimes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,7 +174,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextRemoverTimeMouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        // TODO add your handling code here:
+        atualizarTabela();
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
  
     // Variables declaration - do not modify//GEN-BEGIN:variables

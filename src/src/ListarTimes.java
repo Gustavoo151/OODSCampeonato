@@ -8,7 +8,6 @@ import visao.ListaTime;
         
 public class ListarTimes extends ListaTime implements InterfaceListarTimes{
 
-    private DefaultTableModel modelo = new DefaultTableModel();
     private Cadastro cadastro;
     private ArrayList<Time> times;
     
@@ -33,9 +32,13 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
 
     @Override
     public void mostrarTimes() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        modelo.addColumn("Nome Time");
+        modelo.addColumn("Tecnico");
         
         if(this.times.isEmpty()){
-            this.modelo.addRow(new String[] {"sem informações", "sem informações"});
+            modelo.addRow(new String[] {"sem informações", "sem informações"});
         }
         else{
             for(int i = 0; i < this.times.size(); i++){
@@ -46,11 +49,6 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
         jTableListaTimes.setModel(modelo);
     }
 
-    @Override
-    public void configModelo() {
-        this.modelo.addColumn("Nome Time");
-        this.modelo.addColumn("Tecnico");
-    }
 
     @Override
     public void removerTime() {
@@ -79,5 +77,10 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
     @Override
     public void removerTextoBarraPesquisaTime() {
         jTextRemoverTime.setText("");
+    }
+
+    @Override
+    public void atualizarTabela() {
+        this.mostrarTimes();
     }
 }

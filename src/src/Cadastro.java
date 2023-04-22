@@ -2,7 +2,6 @@ package src;
 
 import javax.swing.JOptionPane;
 import visao.TelaCadastroTimes;
-import visao.ListaTime;
 
 public class Cadastro extends TelaCadastroTimes{
 
@@ -130,7 +129,6 @@ public class Cadastro extends TelaCadastroTimes{
         listarTimes.setVisible(true);
         listarTimes.setTela(this);
         listarTimes.setTimes(this.campeonato.getTimes());
-        listarTimes.configModelo();
         listarTimes.mostrarTimes();
     }
 
