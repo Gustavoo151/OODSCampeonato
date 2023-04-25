@@ -9,6 +9,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
     abstract public void setTextoBarraPequisarTime();
     abstract public void removerTextoBarraPesquisaTime();
     abstract public void atualizarTabela();
+    abstract public void listarJogadores();
     
     public ListaTime() {
         initComponents();
@@ -141,8 +142,6 @@ abstract public class ListaTime extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    
     
     private void jButtonVoltaTelaCastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltaTelaCastroActionPerformed
         telaCadastro();          
@@ -150,6 +149,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
 
     private void jButtonVerJogadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerJogadoresActionPerformed
         setTextoBarraPesquisarJog();
+        listarJogadores();
     }//GEN-LAST:event_jButtonVerJogadoresActionPerformed
 
     private void jTextFieldPesquisaTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaTime
@@ -180,7 +180,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonRemoverTime;
-    private javax.swing.JButton jButtonVerJogadores;
+    public javax.swing.JButton jButtonVerJogadores;
     private javax.swing.JButton jButtonVoltaTelaCastro;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JScrollPane jScrollPane1;

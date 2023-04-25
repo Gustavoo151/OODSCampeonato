@@ -27,12 +27,4 @@ public class Atleta extends Pessoa{
 	public void setPosicao(String posicao) {
 		this.posicao = posicao;
 	}
-	
-	public void mostrarAtleta(){
-		System.out.println(super.getNome());
-		System.out.println(super.getIdade());
-		System.out.println(super.getAltura());
-		System.out.println(this.getPosicao());
-		System.out.println(this.getMelhorPerna());
-	}
 }

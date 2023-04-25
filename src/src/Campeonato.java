@@ -21,4 +21,7 @@ public class Campeonato {
             System.out.println(time.getNome());
         }
     }
+    public ArrayList<Time> getTime(){
+        return this.times;
+    }
 }

@@ -48,6 +48,8 @@ public class Cadastro extends TelaCadastroTimes{
             this.atleta.setMelhorPerna(jTextMelhorPe.getText());
             this.time.setAtleta(this.atleta);
             
+            System.out.println(this.atleta.getNome());
+            
             this.time.setAtleta(this.atleta);
             
             limparCamposAtleta();

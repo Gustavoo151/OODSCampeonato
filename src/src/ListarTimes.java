@@ -59,6 +59,20 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
         }
     }
 
+    public ArrayList<Atleta> acessaJogadores(){
+        for(Time time: times){
+            if(jTextPesquisaTimesJogadores.getText().equals(time.getNome())){
+                ArrayList<Atleta> atletas = time.getAtletas();
+                for (Atleta atleta: atletas){
+                    atleta.getNome();
+                }
+                return time.getAtletas();
+            }
+        }
+        return null;
+    }
+    
+    
     @Override
     public void setTextoBarraPesquisarJog() {
         jTextPesquisaTimesJogadores.setText("Nome do Time");
@@ -83,4 +97,15 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
     public void atualizarTabela() {
         this.mostrarTimes();
     }
+
+    @Override
+    public void listarJogadores() {
+        ListaJogadores listaJogadores = new ListaJogadores();
+        listaJogadores.setAtletas(acessaJogadores());   
+        listaJogadores.mostraTable();
+        this.dispose();
+        listaJogadores.setVisible(true);
+    }
+
+
 }
