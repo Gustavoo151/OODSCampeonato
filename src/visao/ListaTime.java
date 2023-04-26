@@ -88,6 +88,11 @@ abstract public class ListaTime extends javax.swing.JFrame {
 
         jButtonVerJogadores.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jButtonVerJogadores.setText("Ver Jogadores");
+        jButtonVerJogadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVerJogadoresMouseClicked(evt);
+            }
+        });
         jButtonVerJogadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerJogadoresActionPerformed(evt);
@@ -148,8 +153,8 @@ abstract public class ListaTime extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltaTelaCastroActionPerformed
 
     private void jButtonVerJogadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerJogadoresActionPerformed
-        setTextoBarraPesquisarJog();
         listarJogadores();
+        setTextoBarraPesquisarJog();
     }//GEN-LAST:event_jButtonVerJogadoresActionPerformed
 
     private void jTextFieldPesquisaTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaTime
@@ -170,12 +175,16 @@ abstract public class ListaTime extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRemoverTimeActionPerformed
 
     private void jTextRemoverTimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextRemoverTimeMouseClicked
-        removerTextoBarraPesquisaTime();
+
     }//GEN-LAST:event_jTextRemoverTimeMouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
         atualizarTabela();
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void jButtonVerJogadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVerJogadoresMouseClicked
+        removerTextoBarraPesquisarJog();
+    }//GEN-LAST:event_jButtonVerJogadoresMouseClicked
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtualizar;

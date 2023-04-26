@@ -70,7 +70,7 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRemoverJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverJogadorActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonRemoverJogadorActionPerformed
 
     private void jButtonRemverJogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemverJogActionPerformed

@@ -6,7 +6,7 @@ import visao.ListarJogadores;
 
 public class ListaJogadores extends ListarJogadores{
     
-    private ArrayList<Atleta> atletas = new ArrayList<>();
+    private ArrayList<Atleta> atletas;
          
     public void setAtletas(ArrayList<Atleta> atletas){
         this.atletas = atletas;
@@ -14,11 +14,11 @@ public class ListaJogadores extends ListarJogadores{
     
     @Override
     public void mostraTable() {
-     /*   for(Atleta atleta: atletas){
-            atleta.getNome();
+      /*  for(Atleta atleta: atletas){
+            System.out.println(atleta.getNome());
         }*/
    
-      /*  DefaultTableModel modeloTable = new DefaultTableModel();
+        DefaultTableModel modeloTable = new DefaultTableModel();
 
         modeloTable.addColumn("Nome");
         modeloTable.addColumn("Idade");
@@ -40,7 +40,7 @@ public class ListaJogadores extends ListarJogadores{
                     atleta.getMelhorPerna()});
            }
        jTableListaJogadores.setModel(modeloTable);
-       }*/
+       }
    }
 }
 

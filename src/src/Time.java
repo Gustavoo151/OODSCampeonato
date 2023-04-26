@@ -6,7 +6,6 @@ public class Time {
 	private String nome;
 	private Tecnico tecnico;
         private ArrayList<Atleta> atletas = new ArrayList<>();
-	
         public Time(){}
         
         public Time(String nome, Tecnico tecnico){
@@ -15,16 +14,16 @@ public class Time {
         }
         
 	public String getNome() {
-		return nome;
+            return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+            this.nome = nome;
 	}
 	public Tecnico getTecnico() {
-		return tecnico;
+            return tecnico;
 	}
 	public void setTecnico(Tecnico tecnico) {
-		this.tecnico = tecnico;
+            this.tecnico = tecnico;
 	}
 	
         public void setAtleta(Atleta atleta){
