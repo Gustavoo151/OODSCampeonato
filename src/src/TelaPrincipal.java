@@ -25,6 +25,4 @@ public class TelaPrincipal  extends TelaInicio{
         Cadastro telaCadastro = new Cadastro();
         telaCadastro.setVisible(true);
     }
-    
-    
 }

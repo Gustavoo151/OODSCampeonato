@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class Campeonato {
+public class Campeonato{
 
     private ArrayList<Time> times = new ArrayList<>();
 

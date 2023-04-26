@@ -1,7 +1,8 @@
 package src;
 
-import interfaces.InterfaceListarTimes;
+import static java.awt.Frame.ICONIFIED;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import visao.ListaTime;
 
@@ -55,6 +56,7 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
          for(int i = 0; i < times.size(); i++){
             if(jTextRemoverTime.getText().equals(times.get(i).getNome())){
                 times.remove(i);
+                JOptionPane.showMessageDialog(this, "Time Removido","Remover", ICONIFIED);
             }
         }
     }

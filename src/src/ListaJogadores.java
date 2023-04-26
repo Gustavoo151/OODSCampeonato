@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import visao.ListarJogadores;
 
-public class ListaJogadores extends ListarJogadores{
+public class ListaJogadores extends ListarJogadores implements InterfaceListaJogadores{
     
     private ArrayList<Jogador> jogadores;
     ListarTimes listarTimes;     
@@ -58,9 +58,20 @@ public class ListaJogadores extends ListarJogadores{
         for(int i = 0; i < jogadores.size(); i++){
             if(jTextFieldNomeJog.getText().equals(jogadores.get(i).getNome())){
                 jogadores.remove(i);
-                JOptionPane.showMessageDialog(this, "Atleta removido","Remover", NORMAL);
+                JOptionPane.showMessageDialog(this, "Atleta removido","Remover", ICONIFIED);
             }  
         }
+        jTextFieldNomeJog.setText("Nome Jogador");
+    }
+
+    @Override
+    public void removerTextJfildRemoverJog() {
+        jTextFieldNomeJog.setText("");
+    }
+
+    @Override
+    public void atualizarTabela() {
+        mostraTable();
     }
 }
 

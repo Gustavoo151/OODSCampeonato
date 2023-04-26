@@ -3,7 +3,8 @@ package src;
 import javax.swing.JOptionPane;
 import visao.TelaCadastroTimes;
 
-public class Cadastro extends TelaCadastroTimes{
+
+public class Cadastro extends TelaCadastroTimes implements InterfaceCadastro{
 
     Jogador atleta;
     Tecnico tecnico;

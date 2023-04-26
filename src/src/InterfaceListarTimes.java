@@ -1,4 +1,4 @@
-package interfaces;
+package src;
 
 import src.Cadastro;
 import java.util.ArrayList;

@@ -175,7 +175,7 @@ abstract public class ListaTime extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRemoverTimeActionPerformed
 
     private void jTextRemoverTimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextRemoverTimeMouseClicked
-
+        removerTextoBarraPesquisaTime();
     }//GEN-LAST:event_jTextRemoverTimeMouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed

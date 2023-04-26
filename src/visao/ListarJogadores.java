@@ -5,7 +5,8 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
     abstract public void mostraTable();
     abstract public void TelaListarTimes();
     abstract public void removerJogador();
-    
+    abstract public void removerTextJfildRemoverJog();
+    abstract public void atualizarTabela();
     
     public ListarJogadores() {
         initComponents();
@@ -21,6 +22,7 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
         jTableListaJogadores = new javax.swing.JTable();
         jButtonRemverJog = new javax.swing.JButton();
         jTextFieldNomeJog = new javax.swing.JTextField();
+        jButtonAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de jogadores");
@@ -40,7 +42,7 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
                 jButtonRemoverJogadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRemoverJogador, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
+        getContentPane().add(jButtonRemoverJogador, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, -1, -1));
 
         jTableListaJogadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,8 +67,23 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonRemverJog, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, -1, -1));
 
+        jTextFieldNomeJog.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jTextFieldNomeJog.setText("Nome Jogador");
+        jTextFieldNomeJog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldNomeJogMouseClicked(evt);
+            }
+        });
         getContentPane().add(jTextFieldNomeJog, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 170, -1));
+
+        jButtonAtualizar.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        jButtonAtualizar.setText("Atualizar");
+        jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -80,7 +97,16 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
         removerJogador();
     }//GEN-LAST:event_jButtonRemverJogActionPerformed
 
+    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
+        atualizarTabela();
+    }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void jTextFieldNomeJogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNomeJogMouseClicked
+        removerTextJfildRemoverJog();
+    }//GEN-LAST:event_jTextFieldNomeJogMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonRemoverJogador;
     public javax.swing.JButton jButtonRemverJog;
     private javax.swing.JLabel jLabel1;

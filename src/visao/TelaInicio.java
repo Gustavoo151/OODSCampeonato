@@ -14,6 +14,8 @@ abstract public class TelaInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         sobreButton = new javax.swing.JButton();
         addTimeButton = new javax.swing.JButton();
+        jLabelNomeDesnvolvedor = new javax.swing.JLabel();
+        jLabelGitHub = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Campeoanato");
@@ -51,6 +53,14 @@ abstract public class TelaInicio extends javax.swing.JFrame {
         });
         jDesktopPane2.add(addTimeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 183, 52));
 
+        jLabelNomeDesnvolvedor.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jLabelNomeDesnvolvedor.setText("Desenvolvido por Gustavo de Oliveira");
+        jDesktopPane2.add(jLabelNomeDesnvolvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 340, -1));
+
+        jLabelGitHub.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jLabelGitHub.setText("Github.com/Gustavoo151/OODSCampeonato");
+        jDesktopPane2.add(jLabelGitHub, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
+
         getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
@@ -72,6 +82,8 @@ abstract public class TelaInicio extends javax.swing.JFrame {
     private javax.swing.JButton addTimeButton;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelGitHub;
+    private javax.swing.JLabel jLabelNomeDesnvolvedor;
     public javax.swing.JButton sobreButton;
     // End of variables declaration//GEN-END:variables
 }
