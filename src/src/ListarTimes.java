@@ -59,7 +59,7 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
         }
     }
 
-    public ArrayList<Atleta> acessaJogadores(){
+    public ArrayList<Jogador> acessaJogadores(){
         for(Time time: times){
             if(jTextPesquisaTimesJogadores.getText().equals(time.getNome())){
                 return time.getAtletas();
@@ -97,12 +97,10 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
     @Override
     public void listarJogadores() {
         ListaJogadores listarJogadores = new ListaJogadores();
-        //acessaJogadores();
         listarJogadores.setAtletas(acessaJogadores());   
         listarJogadores.mostraTable();
+        listarJogadores.setTelaListarTimes(this);
         this.dispose();
         listarJogadores.setVisible(true);
     }
-
-
 }

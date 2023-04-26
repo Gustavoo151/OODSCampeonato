@@ -5,7 +5,7 @@ import visao.TelaCadastroTimes;
 
 public class Cadastro extends TelaCadastroTimes{
 
-    Atleta atleta;
+    Jogador atleta;
     Tecnico tecnico;
     Time time;
     Campeonato campeonato = new Campeonato();
@@ -40,7 +40,7 @@ public class Cadastro extends TelaCadastroTimes{
         {
             JOptionPane.showMessageDialog(this, "Atleta cadastrado.");
             
-            this.atleta = new Atleta();
+            this.atleta = new Jogador();
             this.atleta.setNome(jTextNomeJogador.getText());
             this.atleta.setAltura(jTextAlturaJogador.getText());
             this.atleta.setIdade(jTextIdadeJogador.getText());

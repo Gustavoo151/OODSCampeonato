@@ -1,13 +1,13 @@
 package src;
 
-public class Atleta extends Pessoa{
+public class Jogador extends Pessoa{
 
 	private String posicao;
 	private String melhorPerna;
 	
-	public Atleta() {};
+	public Jogador() {};
 	
-	public Atleta(String posicao, String melhorPerna, String nome, String idade, String altura) {
+	public Jogador(String posicao, String melhorPerna, String nome, String idade, String altura) {
 		super(nome, idade, altura);
 		this.posicao = posicao;
 		this.melhorPerna = melhorPerna;

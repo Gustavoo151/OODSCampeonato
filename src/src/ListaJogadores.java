@@ -1,23 +1,22 @@
 package src;
 
+import static java.awt.Frame.ICONIFIED;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import visao.ListarJogadores;
 
 public class ListaJogadores extends ListarJogadores{
     
-    private ArrayList<Atleta> atletas;
-         
-    public void setAtletas(ArrayList<Atleta> atletas){
-        this.atletas = atletas;
+    private ArrayList<Jogador> jogadores;
+    ListarTimes listarTimes;     
+    
+    public void setAtletas(ArrayList<Jogador> atletas){
+        this.jogadores = atletas;
     }
     
     @Override
     public void mostraTable() {
-      /*  for(Atleta atleta: atletas){
-            System.out.println(atleta.getNome());
-        }*/
-   
         DefaultTableModel modeloTable = new DefaultTableModel();
 
         modeloTable.addColumn("Nome");
@@ -26,11 +25,12 @@ public class ListaJogadores extends ListarJogadores{
         modeloTable.addColumn("Posição");
         modeloTable.addColumn("Melhor Perna");
 
-        if(this.atletas.isEmpty()){
+        if(this.jogadores.isEmpty()){
            modeloTable.addRow(new String[] {"sem informações", "sem informações"});
+           jTableListaJogadores.setModel(modeloTable);
        }
        else{
-            for (Atleta atleta : atletas){
+            for (Jogador atleta : jogadores){
    
                 modeloTable.addRow(new String[] {
                     atleta.getNome(),
@@ -40,7 +40,27 @@ public class ListaJogadores extends ListarJogadores{
                     atleta.getMelhorPerna()});
            }
        jTableListaJogadores.setModel(modeloTable);
-       }
-   }
+        }
+    }
+    
+    public void setTelaListarTimes(ListarTimes listarTimes){
+        this.listarTimes = listarTimes;
+    }
+
+    @Override
+    public void TelaListarTimes() {
+        this.dispose();
+        this.listarTimes.setVisible(true);
+    }
+
+    @Override
+    public void removerJogador() {
+        for(int i = 0; i < jogadores.size(); i++){
+            if(jTextFieldNomeJog.getText().equals(jogadores.get(i).getNome())){
+                jogadores.remove(i);
+                JOptionPane.showMessageDialog(this, "Atleta removido","Remover", NORMAL);
+            }  
+        }
+    }
 }
 

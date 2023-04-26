@@ -1,6 +1,6 @@
 package interfaces;
 
-import src.Atleta;
+import src.Jogador;
 import src.Time;
 
 public interface InterfaceControle {

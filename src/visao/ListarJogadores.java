@@ -3,6 +3,9 @@ package visao;
 abstract public class ListarJogadores extends javax.swing.JFrame {
 
     abstract public void mostraTable();
+    abstract public void TelaListarTimes();
+    abstract public void removerJogador();
+    
     
     public ListarJogadores() {
         initComponents();
@@ -70,19 +73,19 @@ abstract public class ListarJogadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRemoverJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverJogadorActionPerformed
-        this.dispose();
+        TelaListarTimes();
     }//GEN-LAST:event_jButtonRemoverJogadorActionPerformed
 
     private void jButtonRemverJogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemverJogActionPerformed
-        // TODO add your handling code here:
+        removerJogador();
     }//GEN-LAST:event_jButtonRemverJogActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRemoverJogador;
-    private javax.swing.JButton jButtonRemverJog;
+    public javax.swing.JButton jButtonRemverJog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTableListaJogadores;
-    private javax.swing.JTextField jTextFieldNomeJog;
+    public javax.swing.JTextField jTextFieldNomeJog;
     // End of variables declaration//GEN-END:variables
 }

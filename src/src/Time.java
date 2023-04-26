@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Time {
 	private String nome;
 	private Tecnico tecnico;
-        private ArrayList<Atleta> atletas = new ArrayList<>();
+        private ArrayList<Jogador> atletas = new ArrayList<>();
         public Time(){}
         
         public Time(String nome, Tecnico tecnico){
@@ -26,11 +26,11 @@ public class Time {
             this.tecnico = tecnico;
 	}
 	
-        public void setAtleta(Atleta atleta){
+        public void setAtleta(Jogador atleta){
             this.atletas.add(atleta);
         }
 
-        public ArrayList<Atleta> getAtletas(){
+        public ArrayList<Jogador> getAtletas(){
             return this.atletas;
         }
         
