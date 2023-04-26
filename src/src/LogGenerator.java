@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class LogGenerator {
     
     
-    public static void generateLog(String menssagem) throws IOException{
+    public static void generateLog(String menssagem, StackTraceElement[] stackTrace ) throws IOException{
         Path path = Paths.get("C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/Logs");
                 
         if(!Files.exists(path)){
@@ -32,6 +32,10 @@ public class LogGenerator {
         
         bw.write(menssagem);
         bw.newLine();
+        bw.write(stackTrace.toString());
+        bw.newLine();
+
+        
         
         bw.close();
         fw.close();

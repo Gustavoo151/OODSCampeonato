@@ -1,4 +1,4 @@
 Tentativa abri uma lista de jogadores vázia!
-Tabela Vázia
+[Ljava.lang.StackTraceElement;@28b44f38
 Tentativa abri uma lista de jogadores vázia!
-Tabela Vázia
+[Ljava.lang.StackTraceElement;@1a51fefe

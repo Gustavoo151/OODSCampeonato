@@ -114,8 +114,7 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
             JOptionPane.showMessageDialog(this, "Time não encontrado!","Time inexistente", ICONIFIED);
             
             try {
-                generateLog(l.toString());
-                generateLog(l.getMessage());
+                generateLog(l.toString(), l.getStackTrace());
             } catch (IOException ex) {
                 Logger.getLogger(ListarTimes.class.getName()).log(Level.SEVERE, null, ex);
             }

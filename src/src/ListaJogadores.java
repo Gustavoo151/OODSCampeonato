@@ -84,8 +84,8 @@ public class ListaJogadores extends ListarJogadores implements InterfaceListaJog
             JOptionPane.showMessageDialog(this, "Tabela Vázia!","Remover", ICONIFIED);
             
             try {
-                generateLog(l.toString());
-                generateLog(l.getMessage());
+                generateLog(l.toString(), l.getStackTrace());
+              
             } catch (IOException ex) {
                 Logger.getLogger(ListaJogadores.class.getName()).log(Level.SEVERE, null, ex);
             }
