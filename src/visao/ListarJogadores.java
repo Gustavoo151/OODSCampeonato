@@ -2,11 +2,11 @@ package visao;
 
 abstract public class ListarJogadores extends javax.swing.JFrame {
 
-    abstract public void mostraTable();
     abstract public void TelaListarTimes();
     abstract public void removerJogador();
     abstract public void removerTextJfildRemoverJog();
     abstract public void atualizarTabela();
+    abstract public void mostraTable() throws Exception;
     
     public ListarJogadores() {
         initComponents();

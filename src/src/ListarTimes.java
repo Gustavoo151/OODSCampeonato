@@ -1,9 +1,13 @@
 package src;
 
 import static java.awt.Frame.ICONIFIED;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static src.LogGenerator.generateLog;
 import visao.ListaTime;
 
         
@@ -49,7 +53,6 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
         }
         jTableListaTimes.setModel(modelo);
     }
-
 
     @Override
     public void removerTime() {
@@ -98,11 +101,27 @@ public class ListarTimes extends ListaTime implements InterfaceListarTimes{
 
     @Override
     public void listarJogadores() {
-        ListaJogadores listarJogadores = new ListaJogadores();
-        listarJogadores.setAtletas(acessaJogadores());   
-        listarJogadores.mostraTable();
-        listarJogadores.setTelaListarTimes(this);
-        this.dispose();
-        listarJogadores.setVisible(true);
+           
+        try{
+            ListaJogadores listarJogadores = new ListaJogadores();
+            listarJogadores.setAtletas(acessaJogadores());
+            listarJogadores.mostraTable();  // Exception vai vim daqui co mo thoews
+            listarJogadores.setTelaListarTimes(this);
+            this.dispose();
+            listarJogadores.setVisible(true);
+        }
+        catch (ListaVaziaException l){
+            JOptionPane.showMessageDialog(this, "Time não encontrado!","Time inexistente", ICONIFIED);
+            
+            try {
+                generateLog(l.toString());
+                generateLog(l.getMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(ListarTimes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        catch (Exception ex) {
+            Logger.getLogger(ListarTimes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

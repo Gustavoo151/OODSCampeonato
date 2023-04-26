@@ -169,7 +169,7 @@ abstract public class TelaCadastroTimes extends javax.swing.JFrame {
                 jButtonListarCadastrosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonListarCadastros, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 499, -1, -1));
+        getContentPane().add(jButtonListarCadastros, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
 
         jButtonAdicionarTime.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jButtonAdicionarTime.setText("Adicionar Time");
@@ -178,7 +178,7 @@ abstract public class TelaCadastroTimes extends javax.swing.JFrame {
                 jButtonAdicionarTimeActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAdicionarTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
+        getContentPane().add(jButtonAdicionarTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, -1, -1));
 
         jButtonAdicionarTecnico.setText("Add Técnico");
         jButtonAdicionarTecnico.addActionListener(new java.awt.event.ActionListener() {

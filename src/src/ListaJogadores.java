@@ -1,9 +1,13 @@
 package src;
 
 import static java.awt.Frame.ICONIFIED;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static src.LogGenerator.generateLog;
 import visao.ListarJogadores;
 
 public class ListaJogadores extends ListarJogadores implements InterfaceListaJogadores{
@@ -16,7 +20,7 @@ public class ListaJogadores extends ListarJogadores implements InterfaceListaJog
     }
     
     @Override
-    public void mostraTable() {
+    public void mostraTable() throws Exception{
         DefaultTableModel modeloTable = new DefaultTableModel();
 
         modeloTable.addColumn("Nome");
@@ -25,9 +29,11 @@ public class ListaJogadores extends ListarJogadores implements InterfaceListaJog
         modeloTable.addColumn("Posição");
         modeloTable.addColumn("Melhor Perna");
 
-        if(this.jogadores.isEmpty()){
+        if(this.jogadores == null){
            modeloTable.addRow(new String[] {"sem informações", "sem informações"});
            jTableListaJogadores.setModel(modeloTable);
+           
+           throw new ListaVaziaException();
        }
        else{
             for (Jogador atleta : jogadores){
@@ -56,9 +62,9 @@ public class ListaJogadores extends ListarJogadores implements InterfaceListaJog
     @Override
     public void removerJogador() {
         for(int i = 0; i < jogadores.size(); i++){
-            if(jTextFieldNomeJog.getText().equals(jogadores.get(i).getNome())){
+            if(jTextFieldNomeJog.getText().equals(jogadores.get(i).getNome())){   
+                JOptionPane.showMessageDialog(this, "Atleta " + jogadores.get(i).getNome() + " removido","Remover jogador", ICONIFIED);
                 jogadores.remove(i);
-                JOptionPane.showMessageDialog(this, "Atleta removido","Remover", ICONIFIED);
             }  
         }
         jTextFieldNomeJog.setText("Nome Jogador");
@@ -71,7 +77,23 @@ public class ListaJogadores extends ListarJogadores implements InterfaceListaJog
 
     @Override
     public void atualizarTabela() {
-        mostraTable();
+        try{
+            mostraTable();
+        }
+        catch(ListaVaziaException l){
+            JOptionPane.showMessageDialog(this, "Tabela Vázia!","Remover", ICONIFIED);
+            
+            try {
+                generateLog(l.toString());
+                generateLog(l.getMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(ListaJogadores.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }   
+        catch (Exception ex) {
+                Logger.getLogger(ListaJogadores.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
+
 }
 
