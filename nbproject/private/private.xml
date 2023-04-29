@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/visao/ListaTime.java</file>
             <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/ListarTimes.java</file>
-            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/ListaVaziaException.java</file>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/InterfaceCadastro.java</file>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/visao/ListarJogadores.java</file>
             <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/visao/TelaCadastroTimes.java</file>
             <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/Logs/logsExceptions.txt</file>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/Cadastro.java</file>
             <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/ListaJogadores.java</file>
-            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/LogGenerator.java</file>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/TelaPrincipal.java</file>
+            <file>file:/C:/Users/joseg/Documents/NetBeansProjects/OODSCampeonato/src/src/Main.java</file>
         </group>
     </open-files>
 </project-private>

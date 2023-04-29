@@ -1,18 +1,48 @@
 package visao;
 
+/**
+ *
+ * @author joseg
+ */
 abstract public class TelaCadastroTimes extends javax.swing.JFrame {
     
+    /**
+     *
+     */
     public TelaCadastroTimes() {
         initComponents();
         confgBottons();
 
     }
    
+    /**
+     *
+     */
     abstract public void salvarTecnico();
+
+    /**
+     *
+     */
     abstract public void salvarAtleta();
+
+    /**
+     *
+     */
     abstract public void criarTime();
+
+    /**
+     *
+     */
     abstract public void salvarTime();
+
+    /**
+     *
+     */
     abstract public void telaListaTime();
+
+    /**
+     *
+     */
     abstract public void confgBottons();
     
     @SuppressWarnings("unchecked")

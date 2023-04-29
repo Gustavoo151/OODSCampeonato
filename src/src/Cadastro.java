@@ -11,7 +11,7 @@ public class Cadastro extends TelaCadastroTimes implements InterfaceCadastro{
     Time time;
     Campeonato campeonato = new Campeonato();
     
-   // gerenciadorCadastro geranciarCadastro = new gerenciadorCadastro();
+ 
 
     @Override
     public void criarTime() {
